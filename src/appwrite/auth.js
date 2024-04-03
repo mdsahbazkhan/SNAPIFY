@@ -11,6 +11,7 @@ export class AuthService {
             .setEndpoint(conf.appwriteUrl)
             .setProject(conf.appwriteProjectId);
         this.account = new Account(this.client);
+       
             
     }
 
@@ -36,6 +37,8 @@ export class AuthService {
         }
     }
 
+   
+
     async getCurrentUser() {
         try {
             return await this.account.get();
@@ -54,6 +57,7 @@ export class AuthService {
             console.log("Appwrite serive :: logout :: error", error);
         }
     }
+    
 }
 
 const authService = new AuthService();

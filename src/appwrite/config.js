@@ -1,5 +1,5 @@
 import conf from "../conf/conf";
-import { Client, Databases, ID, Storage, Query } from "appwrite";
+import { Client, Databases, ID, Storage } from "appwrite";
 
 export class Service {
   client = new Client();
@@ -98,6 +98,8 @@ export class Service {
       return false;
     }
   }
+ 
+
 
   //File
 
@@ -133,3 +135,4 @@ export class Service {
 
 const service = new Service();
 export default service;
+

@@ -12,38 +12,16 @@ function Signup() {
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
 
-//   const create = async (data) => {
-  
-//   setError("");
-//   try {
-//     const userData = await authService.createAccount({
-//       email: data.email,
-//       password: data.password,
-//       name: data.name,
-//     });
-//     if (userData) {
-//       // Log in the user after successfully creating the account
-//       await authService.login(data.email, data.password);
-//       // Retrieve the current user data
-//       const currentUserData = await authService.getCurrentUser();
-//       if (currentUserData) {
-//         dispatch(login(currentUserData));
-//         navigate("/login");
-//       }
-//     }
-//   } catch (error) {
-//     setError(error.message);
-//   }
-// };
+
 const create = async(data) => {
   setError("")
   try {
       const userData = await authService.createAccount(data)
       if (userData) {
-          const userData = await authService.getCurrentUser()
-          if(userData) dispatch(login(userData));
-          navigate("/")
-      }
+        const userData = await authService.getCurrentUser()
+        if(userData) dispatch(login(userData));
+        navigate("/")
+    }
   } catch (error) {
       setError(error.message)
   }
@@ -51,7 +29,7 @@ const create = async(data) => {
     
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center ">
       <div
         className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}
       >
