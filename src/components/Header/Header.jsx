@@ -73,7 +73,7 @@ function Header() {
               ) : null
             )}
             {authStatus && (
-              <li className="m-1">
+              <li className="m-0">
                 <LogoutBtn />
               </li>
             )}

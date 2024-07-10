@@ -50,16 +50,16 @@ function AllPost() {
   }, []);
 
   return (
-    <div className="w-full py-8 text-center py-28">
+    <div className="w-full text-center py-28">
       <Container>
         {loading ? (
           <h1 className="text-3xl font-bold hover:text-white">Loading...</h1>
         ) : posts.length === 0 ? (
           <h1 className="text-3xl font-bold hover:text-white">No post available</h1>
         ) : (
-          <div className="flex flex-wrap">
+          <div className="flex flex-wrap ">
             {posts.map((post) => (
-              <div key={post.$id} className="p-2 w-1/3">
+              <div key={post.$id} className="p-2 w-full sm:w-1/2 lg:w-1/3">
                 <PostCard {...post} />
               </div>
             ))}

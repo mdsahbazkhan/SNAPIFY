@@ -48,18 +48,26 @@ function PostCard({ $id, title, featuredImage }) {
     <div className='w-full bg-gray-300 rounded-xl p-4'>
       <Link to={`/post/${$id}`}>
         <div className='w-full  mb-3' >
-          <img src={appwriteService.getFilePreview(featuredImage)} alt={title} className='rounded-xl  w-full h-full' style={{height:'250px'}} />
+          <img src={appwriteService.getFilePreview(featuredImage)} alt={title} className='rounded-xl w-full h-72' style={{height:'250px'}} />
         </div>
-        <h2 className='text-sm font-bold'>{title}</h2>
+        <h2 className='text-lg font-bold '>{title}</h2>
       </Link>
-      <div className="flex justify-between items-center mt-2 flex-col sm:flex-row">
-        <button onClick={deletePost} className={`bg-red-500 hover:bg-red-600 text-white font-bold   py-2 px-4 rounded mt-2 sm:mt-0${deleting ? 'opacity-50 pointer-events-none' : ''}`}>
-          {deleting ? 'Deleting...' : 'Delete'}
-        </button>
-        <Link to={`/edit-post/${$id}`} className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-2 sm:mt-0">
-          Edit
-        </Link>
-      </div>
+      
+      <div className="flex justify-between items-center mt-2 flex-col sm:flex-row w-full">
+  <button
+    onClick={deletePost}
+    className={`bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded w-full sm:w-auto mt-2 sm:mt-0 ${deleting ? 'opacity-50 pointer-events-none' : ''}`}
+  >
+    {deleting ? 'Deleting...' : 'Delete'}
+  </button>
+  <Link
+    to={`/edit-post/${$id}`}
+    className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded w-full sm:w-auto mt-2 sm:mt-0"
+  >
+    Edit
+  </Link>
+</div>
+
     </div>
   );
 }
