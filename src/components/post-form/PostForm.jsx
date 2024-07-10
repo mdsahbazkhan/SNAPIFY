@@ -20,6 +20,7 @@ function PostForm({post}) {
   
   const submit = async (data) => {
     if (post) {
+      console.log('Updating post:', post); 
       const file = data.image[0]
         ?await appwriteService.uploadFile(data.image[0])
         : null;
@@ -34,11 +35,13 @@ function PostForm({post}) {
         navigate(`/post/${dbPost.$id}`);
       }
     } else {
+      console.log('Creating new post');
       const file = await appwriteService.uploadFile(data.image[0]);
       if (file) {
         const fileId = file.$id;
         data.featuredImage = fileId;
         const dbPost = await appwriteService.createPost({ ...data, userId: userData.$id });
+        console.log(dbPost)
         if (dbPost) {
           navigate(`/post/${dbPost.$id}`);
         }
@@ -70,8 +73,8 @@ function PostForm({post}) {
   
 
   return (
-    <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
-      <div className="w-2/3 px-2">
+    <form onSubmit={handleSubmit(submit)} className="flex flex-wrap py-28">
+      <div className="w-2/3 px-2 ">
         <Input
           label="Title :"
           placeholder="Title"

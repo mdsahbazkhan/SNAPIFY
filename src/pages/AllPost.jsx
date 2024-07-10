@@ -50,7 +50,7 @@ function AllPost() {
   }, []);
 
   return (
-    <div className="w-full py-8 text-center">
+    <div className="w-full py-8 text-center py-28">
       <Container>
         {loading ? (
           <h1 className="text-3xl font-bold hover:text-white">Loading...</h1>
