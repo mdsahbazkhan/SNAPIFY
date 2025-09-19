@@ -1,10 +1,10 @@
 import "./App.css";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import authService from "./appwrite/auth";
 import { login, logout } from "./store/authSlice";
-import {Header,Footer} from './components'
-import {Outlet} from "react-router-dom"
+import { Header, Footer } from "./components";
+import { Outlet } from "react-router-dom";
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -22,14 +22,17 @@ function App() {
       })
       .finally(() => setLoading(false));
   }, []);
-  return !loading ? <div className="min-h-screen flex flex-wrap content-between bg-gray-500"><div className="w-full justify-content">
-    <Header />
-    <main>
-      <Outlet/>
-    </main>
-    <Footer/>
+  return !loading ? (
+    <div className="min-h-screen flex flex-wrap content-between bg-gray-500">
+      <div className="w-full justify-content">
+        <Header />
+        <main>
+          <Outlet />
+        </main>
+        <Footer />
+      </div>
     </div>
-    </div> : null;
+  ) : null;
 }
 
 export default App;

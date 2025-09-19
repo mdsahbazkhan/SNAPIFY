@@ -5,14 +5,14 @@ import "./index.css";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { AuthLayout,Login } from "./components/index.js";
+import { AuthLayout, Login } from "./components/index.js";
 import AddPost from "./pages/AddPost";
-import Signup from './pages/Signup'
+import Signup from "./pages/Signup";
 import EditPost from "./pages/EditPost";
-import Home from './pages/Home.jsx'
+import Home from "./pages/Home.jsx";
 import Post from "./pages/Post";
 import AllPost from "./pages/AllPost";
-
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const router = createBrowserRouter([
   {
@@ -76,7 +76,8 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
-     <RouterProvider router={router}/>
+      <RouterProvider router={router} />
+      <SpeedInsights />
     </Provider>
   </React.StrictMode>
 );
